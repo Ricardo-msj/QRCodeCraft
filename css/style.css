@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto;
+    font-family: serif;
 }
 
 body{
@@ -10,16 +10,17 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #34db7a;
+    background: linear-gradient(135deg, #34db7a, #0b845b);
 }
 
-.container{
-    background-color: #ffff;
+.container {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
     height: 260px;
     width: 400px;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 20px;
-    transition: 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: height 0.3s ease-in-out;
 }
 
 .container.active{
@@ -29,59 +30,75 @@ body{
 
 #qr-header{
     text-align: center;
+    margin-bottom: 15px;
 }
 
-#qr-header h1{
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+#qr-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #086824;
 }
 
 #qr-header p{
     color: #444;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-#qr-form{
-    margin: 20px 15px;
+#qr-form {
+    margin: 20px 0;
 }
 
 #qr-form input,
-#qr-form button{
+#qr-form button {
     width: 100%;
     height: 50px;
     border: none;
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-#qr-form input{
-    border: 1px solid #777;
+#qr-form input {
+    border: 2px solid #086824;
     padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#qr-form button{
-    background-color: #086824;
-    color: #ffff;
+#qr-form input:focus {
+    outline: none;
+    border: 1px solid #086824; 
+    box-shadow: none; 
+}
+
+
+#qr-form button {
+    background: linear-gradient(135deg, #34db7a, #086824);
+    color: #ffffff;
     font-size: 1.2rem;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
     opacity: 0.9;
-    transition: 0.4s;
+    transition: opacity 0.4s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #qr-form button:hover{
     opacity: 1;
+    transform: translateY(-3px);
 }
 
 #qr-code{
     display: flex;
     justify-content: center;
-    border: 1px solid #ccc;
-    padding: 30px 0;
-    margin: 20px 15px;
-    border-radius: 5px;
-    transition: 0.5s;
+    align-items: center;
+    border: 2px solid #086824;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
     opacity: 0;
+    background: #f7f7f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -89,3 +106,46 @@ body{
     opacity: 1;
 }
 
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    #qr-header h1 {
+        font-size: 1.5rem;
+    }
+
+    #qr-form input,
+    #qr-form button {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+
+    #qr-form button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #qr-header h1 {
+        font-size: 1.2rem;
+    }
+
+    #qr-form input,
+    #qr-form button {
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+    #qr-form button {
+        font-size: 0.9rem;
+    }
+}
